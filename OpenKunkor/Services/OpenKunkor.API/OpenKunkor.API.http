@@ -1,0 +1,6 @@
+@OpenKunkor.API_HostAddress = http://localhost:5076
+
+GET {{OpenKunkor.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
