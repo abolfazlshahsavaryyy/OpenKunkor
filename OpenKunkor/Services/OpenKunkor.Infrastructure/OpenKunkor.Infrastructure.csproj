@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\OpenKunkor.Application\OpenKunkor.Application.csproj" />
+  </ItemGroup>
+
 </Project>
