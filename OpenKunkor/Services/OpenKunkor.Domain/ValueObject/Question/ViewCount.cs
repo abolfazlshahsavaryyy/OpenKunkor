@@ -9,10 +9,11 @@
     }
 
     public static ViewCount Of(int value) => new ViewCount(value);
+    
 
-    public ViewCount Increase(int amount)
+    public void Increase(int amount)
     {
-        return new ViewCount(Value + amount);
+        this.Value += amount;
     }
 
     public override bool Equals(object? obj) =>

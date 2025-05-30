@@ -7,10 +7,10 @@
         {
             this.Value = content;
         }
-        public static TitleQuestion Of(string content)
+        public static ContentQuestion Of(string content)
         {
             ArgumentException.ThrowIfNullOrEmpty(content);
-            return new TitleQuestion(content);
+            return new ContentQuestion(content);
         }
 
         public int CompareTo(ContentQuestion? other)
