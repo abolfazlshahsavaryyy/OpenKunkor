@@ -1,4 +1,5 @@
-﻿public sealed class ViewCount
+﻿using namespace OpenKunkor.Domain.ValueObject.Common;
+public sealed class ViewCount
 {
     public int Value { get; private set; }
 
