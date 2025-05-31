@@ -1,6 +1,7 @@
 ﻿using OpenKunkor.Domain.Abstraction;
 using OpenKunkor.Domain.ValueObject.Question;
 using OpenKunkor.Domain.Arguments;
+using OpenKunkor.Domain.ValueObject.Common;
 namespace OpenKunkor.Domain.Entities
 {
     public class Question:Entity<QuestionId>
