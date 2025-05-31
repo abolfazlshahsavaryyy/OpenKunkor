@@ -13,5 +13,12 @@ namespace OpenKunkor.Domain.Arguments
                     $"\nterminalSize:{terminalSize}");
             }
         }
+        public static void ThrowIfIdIsNull(Guid Id)
+        {
+            if(Id ==null || Id == Guid.Empty)
+            {
+                throw new Exception("The Id can't be null or empty");
+            }
+        }
     }
 }
