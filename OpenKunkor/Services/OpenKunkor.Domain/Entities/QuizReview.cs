@@ -10,6 +10,7 @@ public class QuizReview : Entity<QuizReviewId>
     public StudentUserName StudentUserName { get; set; }
 
     public static QuizReview Create(
+        QuizReviewId QuizReviewId,
         Rate rate,
         ReviewDescription description,
         QuizRate quizRate,
@@ -18,7 +19,7 @@ public class QuizReview : Entity<QuizReviewId>
     {
         return new QuizReview
         {
-            
+            Id=QuizReviewId,
             Rate = rate,
             Description = description,
             QuizRate = quizRate,
