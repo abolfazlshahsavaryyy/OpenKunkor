@@ -46,5 +46,8 @@
     "Student",
     "Advisor",
     "Admin"
-  ]
+  ],
+  "JoinTable": {
+    Follow(User),UserChat,Reply(Comment),
+  }
 }
