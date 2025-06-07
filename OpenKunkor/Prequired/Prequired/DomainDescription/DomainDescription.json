@@ -1,0 +1,50 @@
+{
+  "Entities": {
+    "User": {
+      "first_name",
+      "last_name",
+      "username",
+      "password_hash",
+      "email",
+      "bio",
+      "profile_url"
+    },
+    "Content": {
+      "title",
+      "photo_url",
+      "description",
+      "like_count"
+    },
+    "Comment": {
+      "content",
+      "username", // Redundant but used for quick display
+      "role"
+    },
+    "Question": {
+      "title",
+      "content",
+      "username" // Redundant for quick access
+    },
+    "Answer": {
+      "content",
+      "username",
+      "role"
+    },
+    "Chat": {
+      "chat_name"
+    },
+    "Message": {
+      "content",
+      "username",
+      "role"
+    }
+  }
+} Relationships Each User (Advisor) can have many Content, and each Content belongs to one Advisor. Each Content can have many Comment, and each Comment belongs to one Content. Each User can like many Content, and each Content can be liked by many Users. (many-to-many) Each User can write many Comments, and each Comment belongs to one User. Each Comment can have many child Comments (replies). (self-referencing one-to-many) Each User (Student) can post many Questions, and each Question belongs to one Student. Each Question can have many Answers, and each Answer belongs to one Question. Each User can write many Answers, and each Answer belongs to one User. Each Chat can have many Messages, and each Message belongs to one Chat. Each Chat can have many Users, and each User can participate in many Chats. (many-to-many) Each User can send many Messages, and each Message is sent by one User. Each User can follow many other Users, and be followed by many Users. (many-to-many, self-referencing)
+
+{
+  "Roles": [
+    "Student",
+    "Advisor",
+    "Admin"
+  ]
+}
