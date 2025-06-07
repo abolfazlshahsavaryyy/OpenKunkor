@@ -10,10 +10,4 @@
     <ProjectReference Include="..\..\BuildingBlocks\BuildingBlocks\BuildingBlocks.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Enum\" />
-    <Folder Include="ValueObject\User\Advisor\" />
-    <Folder Include="ValueObject\User\Student\" />
-  </ItemGroup>
-
 </Project>
