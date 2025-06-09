@@ -1,53 +1,112 @@
 {
   "Entities": {
     "User": {
-      "first_name",
-      "last_name",
-      "username",
-      "password_hash",
-      "email",
-      "bio",
-      "profile_url"
+      "first_name": "string",
+      "last_name": "string",
+      "username": "string",
+      "password_hash": "string",
+      "email": "string",
+      "bio": "string",
+      "profile_url": "string"
     },
     "Content": {
-      "title",
-      "photo_url",
-      "description",
-      "like_count"
+      "title": "string",
+      "photo_url": "string",
+      "description": "string",
+      "like_count": "int"
     },
     "Comment": {
-      "content",
-      "username", // Redundant but used for quick display
-      "role"
+      "content": "string",
+      "username": "string", // Redundant but used for quick display
+      "role": "string"
     },
     "Question": {
-      "title",
-      "content",
-      "username" // Redundant for quick access
+      "title": "string",
+      "content": "string",
+      "username": "string" // Redundant for quick access
     },
     "Answer": {
-      "content",
-      "username",
-      "role"
+      "content": "string",
+      "username": "string",
+      "role": "string"
     },
     "Chat": {
-      "chat_name"
+      "chat_name": "string"
     },
     "Message": {
-      "content",
-      "username",
-      "role"
+      "content": "string",
+      "username": "string",
+      "role": "string"
     }
-  }
-} Relationships Each User (Advisor) can have many Content, and each Content belongs to one Advisor. Each Content can have many Comment, and each Comment belongs to one Content. Each User can like many Content, and each Content can be liked by many Users. (many-to-many) Each User can write many Comments, and each Comment belongs to one User. Each Comment can have many child Comments (replies). (self-referencing one-to-many) Each User (Student) can post many Questions, and each Question belongs to one Student. Each Question can have many Answers, and each Answer belongs to one Question. Each User can write many Answers, and each Answer belongs to one User. Each Chat can have many Messages, and each Message belongs to one Chat. Each Chat can have many Users, and each User can participate in many Chats. (many-to-many) Each User can send many Messages, and each Message is sent by one User. Each User can follow many other Users, and be followed by many Users. (many-to-many, self-referencing)
-
-{
+  },
+  "Relationships": {
+    "User-Content": {
+      "type": "one-to-many",
+      "from": "User (Advisor)",
+      "to": "Content"
+    },
+    "Content-Comment": {
+      "type": "one-to-many",
+      "from": "Content",
+      "to": "Comment"
+    },
+    "User-Content-Like": {
+      "type": "many-to-many",
+      "entities": [ "User", "Content" ]
+    },
+    "User-Comment": {
+      "type": "one-to-many",
+      "from": "User",
+      "to": "Comment"
+    },
+    "Comment-Reply": {
+      "type": "one-to-many",
+      "self_referencing": true,
+      "entity": "Comment"
+    },
+    "User-Question": {
+      "type": "one-to-many",
+      "from": "User (Student)",
+      "to": "Question"
+    },
+    "Question-Answer": {
+      "type": "one-to-many",
+      "from": "Question",
+      "to": "Answer"
+    },
+    "User-Answer": {
+      "type": "one-to-many",
+      "from": "User",
+      "to": "Answer"
+    },
+    "Chat-Message": {
+      "type": "one-to-many",
+      "from": "Chat",
+      "to": "Message"
+    },
+    "Chat-User": {
+      "type": "many-to-many",
+      "entities": [ "Chat", "User" ]
+    },
+    "User-Message": {
+      "type": "one-to-many",
+      "from": "User",
+      "to": "Message"
+    },
+    "User-Follow": {
+      "type": "many-to-many",
+      "self_referencing": true,
+      "entity": "User"
+    }
+  },
   "Roles": [
     "Student",
     "Advisor",
     "Admin"
   ],
-  "JoinTable": {
-    Follow(User),UserChat,Reply(Comment),
-  }
+  "JoinTables": [
+    "Follow (User ↔ User)",
+    "UserChat (User ↔ Chat)",
+    "Reply (Comment ↔ Comment)"
+  ]
 }
