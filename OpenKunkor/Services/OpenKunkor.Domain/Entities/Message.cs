@@ -1,4 +1,5 @@
 ﻿using OpenKunkor.Domain.Abstraction;
+using OpenKunkor.Domain.ValueObject.Message;
 
 namespace OpenKunkor.Domain.Entities;
 public class Message:Entity<Guid>

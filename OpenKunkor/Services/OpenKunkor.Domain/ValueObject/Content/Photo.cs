@@ -10,7 +10,7 @@ public class ContentPhoto
     {
         ArgumentException.ThrowIfNullOrEmpty(photoUrl);
         CustomArgumentException.ThrowIfNotInRange(photoUrl, 10, 60);
-        return new Photo
+        return new ContentPhoto
         {
             PhotoSize = photoSize,
             PhotoUrl=photoUrl
