@@ -4,7 +4,7 @@ namespace OpenKunkor.Domain.Entities;
 public class Answer:Entity<Guid>
 {
 
-    public string Content { get; set; } = null!;
+    public AnswerContent Content { get; set; } = null!;
     public string Username { get; set; } = null!;
     public string Role { get; set; } = null!;
 

@@ -1,12 +1,11 @@
-﻿using OpenKunkor.Domain.Abstraction;
-using System.Xml.Linq;
+﻿
 namespace OpenKunkor.Domain.Entities;
 public class Content:AggregateRoot<Guid>
 {
 
-    public string Title { get; set; } = null!;
-    public string PhotoUrl { get; set; } = null!;
-    public string Description { get; set; } = null!;
+    public ContentTitle Title { get; set; } = null!;
+    public ContentPhoto Photo { get; set; } = null!;
+    public ContentDescription Description { get; set; } = null!;
     public int LikeCount { get; set; }
 
     public int UserId { get; set; }

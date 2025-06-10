@@ -1,10 +1,9 @@
-﻿using OpenKunkor.Domain.Abstraction;
-namespace OpenKunkor.Domain.Entities;
+﻿namespace OpenKunkor.Domain.Entities;
 public class Comment:Entity<Guid>
 {
     
 
-    public string Content { get; set; } = null!;
+    public CommentContent Content { get; set; } = null!;
     public string Username { get; set; } = null!;
     public string Role { get; set; } = null!;
 

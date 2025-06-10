@@ -1,11 +1,11 @@
-﻿using OpenKunkor.Domain.Abstraction;
+﻿
 
 public class Question:AggregateRoot<Guid>
 {
     
 
-    public string Title { get; set; } = null!;
-    public string Content { get; set; } = null!;
+    public QuestionTitle Title { get; set; } = null!;
+    public QuestionContent Content { get; set; } = null!;
     public string Username { get; set; } = null!;
 
     public int UserId { get; set; }
