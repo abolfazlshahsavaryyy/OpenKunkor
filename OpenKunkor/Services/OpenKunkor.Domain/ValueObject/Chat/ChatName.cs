@@ -4,7 +4,7 @@ namespace OpenKunkor.Domain.ValueObject.Chat
 {
     public class ChatName
     {
-        public string Valeu { get; set; } = string.Empty;
+        public string Value { get; set; } = string.Empty;
         public static ChatName Of(string value)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(value);
