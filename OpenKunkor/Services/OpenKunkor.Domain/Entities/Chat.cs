@@ -1,4 +1,6 @@
 ﻿
+using OpenKunkor.Domain.ValueObject.Chat;
+
 public class Chat:AggregateRoot<Guid>
 {
     
