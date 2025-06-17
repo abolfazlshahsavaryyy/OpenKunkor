@@ -20,6 +20,6 @@ namespace OpenKunkor.Infrastructure.Identity
         public ICollection<UserChat> Chats { get ; set ; }
         public ICollection<UserFollow> Following { get ; set ; }
         public ICollection<UserFollow> Followers { get ; set ; }
-        Guid IEntity<Guid>.Id { get; set; }
+        
     }
 }
