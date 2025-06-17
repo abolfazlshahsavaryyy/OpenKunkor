@@ -7,8 +7,8 @@ public class Comment:Entity<Guid>
     public string Username { get; set; } = null!;
     public string Role { get; set; } = null!;
 
-    public int UserId { get; set; }
-    public User User { get; set; } = null!;
+    public Guid UserId { get; set; }
+    
 
     public int ContentId { get; set; }
     public Content ContentItem { get; set; } = null!;

@@ -8,8 +8,8 @@ public class Content:AggregateRoot<Guid>
     public ContentDescription Description { get; set; } = null!;
     public int LikeCount { get; set; }
 
-    public int UserId { get; set; }
-    public User User { get; set; } = null!;
+    public Guid UserId { get; set; }
+    
 
     public ICollection<Comment> Comments { get; set; } = new List<Comment>();
     public ICollection<UserContentLike> LikedByUsers { get; set; } = new List<UserContentLike>();
