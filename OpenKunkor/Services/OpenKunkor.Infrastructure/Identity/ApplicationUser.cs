@@ -5,13 +5,13 @@ using OpenKunkor.Domain.Join;
 
 namespace OpenKunkor.Infrastructure.Identity
 {
-    public class ApplicationUser : IdentityUser, IUser
+    public class ApplicationUser : IdentityUser
     {
-        public string FirstName { get; set ; }
-        public string LastName { get ; set; }
-        public string Bio { get ; set ; }
-        public string ProfileUrl { get ; set ; }
-        public ICollection<Content> Contents { get ; set; }
+        public string FirstName { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        public string Bio { get; set; } = string.Empty;
+        public string ProfileUrl { get; set; } = string.Empty;
+        public ICollection<Content> Contents { get; set; }
         public ICollection<Comment> Comments { get ; set ; }
         public ICollection<Question> Questions { get ; set ; }
         public ICollection<Answer> Answers { get ; set ; }

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OpenKunkor.Application\OpenKunkor.Application.csproj" />
+    <ProjectReference Include="..\OpenKunkor.Domain\OpenKunkor.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>

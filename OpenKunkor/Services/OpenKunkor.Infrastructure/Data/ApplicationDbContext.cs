@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices.Marshalling;
 using OpenKunkor.Domain.Entities;
+using OpenKunkor.Domain.Join;
 
 namespace OpenKunkor.Infrastructure.Data
 {
@@ -25,6 +26,9 @@ namespace OpenKunkor.Infrastructure.Data
         public DbSet<Content> contents { get; set; }
         public DbSet<Message> messages { get; set; }
         public DbSet<Question> questions { get; set; }
+        public DbSet<UserContentLike> userContentLikes { get; set; }
+        public DbSet<UserChat> userChats { get; set; }
+        public DbSet<UserFollow> userFollows { get; set; }
         
         protected override void OnModelCreating(ModelBuilder builder)
         {
