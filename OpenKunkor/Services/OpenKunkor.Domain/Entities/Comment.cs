@@ -8,12 +8,12 @@ public class Comment:Entity<Guid>
     public string Role { get; set; } = null!;
 
     public Guid UserId { get; set; }
-    
+    //public ApplicationUser
 
     public int ContentId { get; set; }
     public Content ContentItem { get; set; } = null!;
 
-    public int? ParentCommentId { get; set; }
+    public Guid? ParentCommentId { get; set; }
     public Comment? ParentComment { get; set; }
     public ICollection<Comment> Replies { get; set; } = new List<Comment>();
 }
