@@ -21,7 +21,7 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
 
         builder.Property(c => c.Username)
             .IsRequired()
-            .HasMaxLength(100); // Optional limit
+            .HasMaxLength(50); // Optional limit
 
         builder.Property(c => c.Role)
             .IsRequired()
@@ -29,13 +29,13 @@ public class CommentConfiguration : IEntityTypeConfiguration<Comment>
 
         // Relationships
 
-        builder.HasOne(c => c.User)
-            .WithMany() // Assuming IUser does not have a Comments collection
+        builder.HasOne<ApplicationUser>()
+            .WithMany(u=>u.Comments) // Assuming IUser does not have a Comments collection
             .HasForeignKey(c => c.UserId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasOne(c => c.ContentItem)
-            .WithMany() // Assuming Content does not have a Comments collection
+            .WithMany(cn=>cn.Comments) // Assuming Content does not have a Comments collection
             .HasForeignKey(c => c.ContentId)
             .OnDelete(DeleteBehavior.Cascade);
 

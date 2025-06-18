@@ -46,10 +46,10 @@ public class ContentConfiguration : IEntityTypeConfiguration<Content>
             .IsRequired();
 
         // Relationship: Content → User
-        builder.HasOne(c => c.User)
-            .WithMany() // Assuming IUser does not have a navigation property
+        builder.HasOne<ApplicationUser>()
+            .WithMany(u=>u.Contents) // Assuming IUser does not have a navigation property
             .HasForeignKey(c => c.UserId)
-            .OnDelete(DeleteBehavior.Restrict);
+            .OnDelete(DeleteBehavior.SetNull);
 
         // Relationship: Content → Comments
         builder.HasMany(c => c.Comments)

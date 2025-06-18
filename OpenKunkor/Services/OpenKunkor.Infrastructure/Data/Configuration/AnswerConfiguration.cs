@@ -17,7 +17,7 @@ namespace OpenKunkor.Infrastructure.Data.Configuration
             });
             builder.Property(a => a.Username)
                .IsRequired()
-               .HasMaxLength(100);
+               .HasMaxLength(50);
 
             builder.Property(a => a.Role)
                    .IsRequired()
@@ -28,7 +28,7 @@ namespace OpenKunkor.Infrastructure.Data.Configuration
                .HasForeignKey(a => a.QuestionId)
                .OnDelete(DeleteBehavior.Cascade); // or Restrict if needed
 
-            builder.HasOne(a => a.User)
+            builder.HasOne<ApplicationUser>()
                    .WithMany(u => u.Answers)
                    .HasForeignKey(a => a.UserId)
                    .OnDelete(DeleteBehavior.Cascade); // or Cascade

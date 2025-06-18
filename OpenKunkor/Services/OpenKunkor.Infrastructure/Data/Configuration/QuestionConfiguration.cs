@@ -30,13 +30,13 @@ namespace OpenKunkor.Infrastructure.Persistence.Configurations
 
             builder.Property(q => q.Username)
                    .IsRequired()
-                   .HasMaxLength(100);
+                   .HasMaxLength(50);
 
             // Relationship: Question → User
-            builder.HasOne(q => q.User)
-                   .WithMany() // assuming IUser does not have a Questions nav property
+            builder.HasOne<ApplicationUser>()
+                   .WithMany(u=>u.Questions) // assuming IUser does not have a Questions nav property
                    .HasForeignKey(q => q.UserId)
-                   .OnDelete(DeleteBehavior.Restrict);
+                   .OnDelete(DeleteBehavior.SetNull);
 
             // Relationship: Question → Answers
             builder.HasMany(q => q.Answers)

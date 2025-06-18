@@ -21,7 +21,7 @@ public class MessageConfiguration : IEntityTypeConfiguration<Message>
 
         builder.Property(m => m.Username)
             .IsRequired()
-            .HasMaxLength(100); // Optional max length
+            .HasMaxLength(50); // Optional max length
 
         builder.Property(m => m.Role)
             .IsRequired()
@@ -34,9 +34,9 @@ public class MessageConfiguration : IEntityTypeConfiguration<Message>
             .OnDelete(DeleteBehavior.Cascade);
 
         // Relationship: Message → User (many messages per user)
-        builder.HasOne(m => m.User)
+        builder.HasOne<ApplicationUser>()
             .WithMany(u => u.Messages)
             .HasForeignKey(m => m.UserId)
-            .OnDelete(DeleteBehavior.Restrict); // Avoid cascade delete on user
+            .OnDelete(DeleteBehavior.SetNull); // Avoid cascade delete on user
     }
 }

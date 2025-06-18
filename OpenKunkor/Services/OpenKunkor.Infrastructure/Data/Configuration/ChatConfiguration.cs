@@ -23,8 +23,8 @@ public class ChatConfiguration : IEntityTypeConfiguration<Chat>
 
         // Configure Messages navigation (assumed 1-to-many)
         builder.HasMany(c => c.Messages)
-            .WithOne() // You can specify navigation if Message has Chat
-            .HasForeignKey("ChatId") // or use explicit FK if Message has ChatId
+            .WithOne(m=>m.Chat) // You can specify navigation if Message has Chat
+            .HasForeignKey(m=>m.ChatId) // or use explicit FK if Message has ChatId
             .OnDelete(DeleteBehavior.Cascade);
 
         builder.ToTable("Chats");
